@@ -55,7 +55,7 @@ def get_conf_all(router_file, user, passwd, enable):
 
         # Multi-threading
         for router in routers:
-            th = threading.thread(target=get_conf, args=(router, user, passwd, enable))
+            th = threading.Thread(target=get_conf, args=(router, user, passwd, enable))
             threads.append(th)
 
         for th in threads:
@@ -76,7 +76,7 @@ def set_conf_all(router_file, user, passwd, enable, config_file):
 
         # Multi-threading
         for router in routers:
-            th = threading.thread(target=set_conf, args=(router, user, passwd, enable, config_file))
+            th = threading.Thread(target=set_conf, args=(router, user, passwd, enable, config_file))
             threads.append(th)
 
         for th in threads:
