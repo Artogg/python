@@ -25,6 +25,7 @@ def set_conf(router, user, passwd, enable, config_file):
         with open(f'{hostname}-{date}.txt', 'w') as f:
             f.write(output)
         connection.disconnect()
+        
     except Exceptions as Err:
         print(f'Erreur: {Err}')
 
@@ -41,6 +42,7 @@ def get_conf(router, user, passwd, enable):
         with open(f'{hostname}-{date}-backup.txt', 'w') as f:
             f.write(output)
         connection.disconnect()
+        
     except Exceptions as Err:
         print(f'Erreur: {Err}')
 
@@ -61,6 +63,7 @@ def get_conf_all(router_file, user, passwd, enable):
 
         for th in threads:
             th.join()
+            
     except Exceptions as Err:
         print(f'Erreur:{Err}')
 
